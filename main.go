@@ -22,14 +22,13 @@ func videoPage(w http.ResponseWriter, r *http.Request) {
 
 	videos := getVideos(p)
 
-	_, _ = fmt.Fprintf(w, "<html><head></head><body>")
+	_, _ = fmt.Fprintf(w, "<html><head></head><body><center>")
 	for _, v := range videos {
 		_, _ = fmt.Fprintln(w, v)
-		//_, _ = fmt.Fprintf(w, "<br>embed:<embed src=\"%s\" allowfullscreen=\"true\" width=\"300\" height=\"300\">", v)
-		_, _ = fmt.Fprintf(w, "<br>videos:<video width=\"300\" height=\"300\" controls>\n  <source src=\"%s\" type=\"video/mp4\"></video>", v)
+		_, _ = fmt.Fprintf(w, "<br><embed src=\"%s\" allowfullscreen=\"true\" width=\"300\">", v)
 		_, _ = fmt.Fprintln(w, "<br>")
 	}
-	_, _ = fmt.Fprintf(w, "</body></html>")
+	_, _ = fmt.Fprintf(w, "</center></body></html>")
 }
 
 func getPath(r *http.Request) string {
