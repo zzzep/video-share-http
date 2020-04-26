@@ -1,0 +1,3 @@
+.idea
+videos/*
+!videos/example.mp4
